@@ -1,0 +1,104 @@
+body{
+
+    background-color: rgb(29, 29, 29);
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#miApp{
+
+
+    display: flex;
+    flex-direction: column;
+    padding-top: 1%;
+  padding-left:  10%;
+  padding-right: 10%;
+  
+
+}
+
+input{
+
+    min-width: 50%;
+    height: 45px;
+    border-radius: 5px;
+    font-size: larger;
+
+}
+
+#tablon{
+    
+    background-color: rgb(39, 39, 39);
+    min-width: 50%;
+    border-radius: 8px;
+    font-size: larger;
+    border: 1px solid rgb(87, 87, 87);
+
+}
+
+#apartado{
+
+    padding: 2%;
+    border-bottom: 1px solid rgb(88, 88, 88);
+    padding-bottom: 5px;
+   
+   
+}
+
+.completadoClase{
+
+ 
+    text-decoration:line-through;
+    color: rgb(43, 211, 160);
+
+}
+
+#prioridad{
+
+   font-size: small;color: rgb(88, 88, 88);
+   background-color: rgba(39, 39, 39, 0.938);
+}
+
+#botonBorrar{
+
+    float:right;
+    background-color: rgba(173, 16, 16, 0.787);
+    border: 1px solid rgba(202, 11, 11, 0.787);
+    color:white;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding:5px;
+    width: 24px;
+    
+
+}
+
+.botones{
+
+    background-color: rgba(63, 63, 63, 0.726);
+    border: 1px solid rgba(63, 63, 63, 0.726);
+    color:rgb(138, 138, 138);
+    border-radius: 3px;
+
+}
+
+.boton1{
+
+    background-color: rgb(24, 179, 158);
+   color:white;
+}
+
+.boton2{
+
+    background-color: rgb(32, 32, 172);
+    color:white;
+}
+
+
+.boton3{
+
+    background-color: rgb(224, 16, 16);
+    color:white;
+}
+
+

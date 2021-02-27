@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <link rel="stylesheet" href="stylos.css">
+    
+
+
+</head>
+
+<body>
+    <div id="miApp">
+
+        <div style="display: flex; ">
+
+            <div v-on:click="paginaNotas" style="width: 10%;background-color: rgba(39, 39, 39, 0.938); border: 1px solid rgb(87, 87, 87);padding-left: 15px;padding-right: 5px;float: right;color: rgb(187, 187, 187);">  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmarks" viewBox="0 0 16 16">
+                <path d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4zm2-1a1 1 0 0 0-1 1v10.566l3.723-2.482a.5.5 0 0 1 .554 0L11 14.566V4a1 1 0 0 0-1-1H4z"/>
+                <path d="M4.268 1H12a1 1 0 0 1 1 1v11.768l.223.148A.5.5 0 0 0 14 13.5V2a2 2 0 0 0-2-2H6a2 2 0 0 0-1.732 1z"/>
+              </svg> notas</div>
+            <div v-on:click="tiempo" style="width: 10%;background-color: rgba(39, 39, 39, 0.938) ;border: 1px solid rgb(87, 87, 87);padding-left: 15px;padding-right: 5px;float: right;">  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-brightness-high" viewBox="0 0 16 16">
+                <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+              </svg>tiempo</div>
+             
+
+        </div>
+
+        <h1>Proyecto Vue.js - Luis Miguel García</h1>
+
+        
+
+        <input v-model="nuevoRecordatorio" v-on:keyup.enter="anadir" placeholder="¿Que quieres recordar?">
+        <br>
+        <div style="height: 1px;background-color:rgb(88, 88, 88);"></div>
+        
+        <div style="align-self: left;padding-top: 2%;padding-bottom: 2%;"><a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-data" viewBox="0 0 16 16">
+            <path d="M4 11a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0v-1zm6-4a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0V7zM7 9a1 1 0 0 1 2 0v3a1 1 0 1 1-2 0V9z"/>
+            <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+            <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+          </svg> {{totalPendientes}} tareas pendientes de un
+                total de {{totalTareas}} |</a>
+            <a v-on:click="borrarTareasCompletadas" style="color: rgb(255, 187, 0);"><strong>x</strong> Borrar tareas
+                completadas</a>  
+                <!-- <button v-on:click="ordenar"></button> -->
+               
+        </div>
+
+      
+
+        <div style="height: 1px;background-color:rgb(88, 88, 88);"></div>
+        <br>
+
+        <div id="tablon">
+            <div></div>
+            <div id="apartado" v-for="(notas,index) in listaRecordatorios" v-bind:key="notas.titulo">
+                
+                <a v-bind:class="{completadoClase: notas.completado}"  v-on:click="cambiarEstado(index)"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 18 18">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+                  </svg> {{notas.titulo}}</a>
+                <button id="botonBorrar" v-on:click="borrarTarea(index)"> x </button>
+                <br>
+                <a id="prioridad">prioridad:</a>
+                <button  v-bind:class="{boton1: notas.prioridad===3}" v-on:click="botonDisponible1(index)" class="botones" >low</button>
+                <button v-bind:class="{boton2: notas.prioridad===2}" v-on:click="botonDisponible2(index)" class="botones" >normal</button>
+                <button v-bind:class="{boton3: notas.prioridad===1}"v-on:click="botonDisponible3(index)"  class="botones" >high</button>
+
+            </div>
+        </div>
+
+
+
+    </div>
+    <script src="miJavaScript.js"></script>
+</body>
+
+</html>

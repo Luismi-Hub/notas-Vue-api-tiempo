@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="forecast.css">
+    <!-- //<script src="Jscript.js"></script> -->
+</head>
+
+<body onload="cargar()">
+
+    <div class="container">
+
+        <div 
+            style="width: 10%;background-color: rgba(37, 93, 177, 0.938); border: 1px solid rgb(255, 255, 255);padding-left: 15px;padding-right: 5px; color: rgb(187, 187, 187);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmarks"
+                viewBox="0 0 16 16">
+                <path
+                    d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4zm2-1a1 1 0 0 0-1 1v10.566l3.723-2.482a.5.5 0 0 1 .554 0L11 14.566V4a1 1 0 0 0-1-1H4z" />
+                <path
+                    d="M4.268 1H12a1 1 0 0 1 1 1v11.768l.223.148A.5.5 0 0 0 14 13.5V2a2 2 0 0 0-2-2H6a2 2 0 0 0-1.732 1z" />
+            </svg> <a href="index.html" style="color: rgb(253, 253, 253);">notas</a>
+        </div>
+       
+
+        <div v-on:click="tiempo"
+            style="width: 10%;background-color: rgba(37, 93, 177, 0.938); border: 1px solid rgb(255, 255, 255);padding-left: 15px;padding-right: 5px;color: rgb(187, 187, 187);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-brightness-high" viewBox="0 0 16 16">
+                <path
+                    d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
+            </svg>tiempo</div>
+    </div>
+
+
+
+    <div id="container2">
+        <div id="divDos">
+            <h2 style="color: white;" d>El tiempo en <a id="lugar"></a></h2>
+            
+            <div>
+                <a id="temperatura" class="two_chars"
+                    style="font-weight: bold;font-size:xx-large;color:rgb(37, 40, 80);"></a>
+            </div>
+            <img src="" id="imagen" />
+
+            <p id="descripcion"></p>
+            <p>Min: <a id="minima" class="two_chars" style="font-weight: bold;color: rgb(37, 40, 80);"></a></p>
+            <p>Max: <a id="maxima" class="two_chars" style="font-weight: bold;color:rgb(37, 40, 80);"></a></p>
+            <br>
+
+            <!-- <button onclick="imagenes()" class="btn">+info</button> -->
+
+
+
+        </div>
+        <h2 id="titulo" style="color: rgba(46, 46, 126, 0.781);">AccuTiempo</h2>
+    </div>
+
+
+    <script>
+
+
+
+     function cargar () {
+            
+            loadDoc("http://api.openweathermap.org/data/2.5/weather?q=Granada,es&appid=f4cf24f9cb34ed2dd857cc66dc22b94d&units=metric&lang=es", loadAPI);
+            
+
+        }
+
+
+
+
+        http: //api.openweathermap.org/data/2.5/weather?q=Granada,es&appid=f4cf24f9cb34ed2dd857cc66dc22b94d&units=metric&lang=es
+
+
+            function loadDoc(url, callback) {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        callback(this);
+                    }
+                };
+                xhttp.open("GET", url, true);
+                xhttp.send();
+            }
+
+
+        function loadAPI(xhttp) {
+            o = JSON.parse(xhttp.responseText);
+
+
+            var ciudade = "Granada";
+
+            var tCiudade = document.getElementById("ciudad");
+            var lugar = document.getElementById("lugar").innerHTML = "<br>" + ciudade + "";
+            var temp = document.getElementById("temperatura").innerHTML = o.main.temp + "ºC";
+            var desc = document.getElementById("descripcion").innerHTML = o.weather[0].description;
+            var min = document.getElementById("minima").innerHTML = o.main.temp_min + "ºC";
+            var max = document.getElementById("maxima").innerHTML = o.main.temp_max + "ºC";
+
+            var tiempo = o.weather[0].main;
+            console.log(tiempo)
+
+
+            if (tiempo === "Clouds") {
+                document.getElementById("imagen").src = "animated/cloudy.svg"
+            } else if (tiempo === "Rain")
+                document.getElementById("imagen").src = "animated/rainy-1.svg"
+
+            else if (tiempo === "Clear")
+                document.getElementById("imagen").src = "animated/day.svg"
+
+            else if (tiempo === "Drizzle")
+                document.getElementById("imagen").src = "animated/rainy-5.svg"
+        }
+
+        ///////  STYLOS
+
+    
+    </script>
+   
+</body>
+
+</html>
