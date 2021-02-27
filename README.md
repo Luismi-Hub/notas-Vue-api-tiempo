@@ -2,4 +2,4 @@
 
 link a página: https://luismi-hub.github.io/notas-Vue-api-tiempo/
 
-NOTA: api tiempo no funciona porque le falta CORS
+NOTA: api tiempo no funciona en github porque le falta CORS
