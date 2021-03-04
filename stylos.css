@@ -102,3 +102,12 @@ input{
 }
 
 
+a{
+color: white;
+
+}
+
+a:hover{
+
+color: lightgray;
+}
